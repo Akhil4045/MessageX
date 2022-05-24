@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
-const mongoose = requre('mongoose');
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const messages = require('./models/messages');
 const users = require('./models/users');
@@ -27,7 +27,7 @@ db.on('error', console.error.bind(console, "MongoDB connection error:"));
 app.post('/messages', async(req, res) => {
     try {
         const { user_name, name, email, phone, message } = req && req.body;
-        let userRow = await db.users.find({ $or: [ { user_name:  user_name  }, { email: email } ] });
+        let userRow = await db.collection("users").find({ $or: [ { user_name:  user_name  } ] });
         if (userRow) {
             let msg = new messages({ user_name, name, email, phone, message });
             await msg.save();
@@ -35,6 +35,18 @@ app.post('/messages', async(req, res) => {
         }
         else 
             res.status(425).send({ message: "User doesn't exist" });
+    }
+    catch(ex) {
+        res.status(425).send({ message: ex.message });
+    }  
+});
+
+app.post('/addUser', async(req, res) => {
+    try {
+        const { user_name, name, email, phone, password } = req && req.body;
+        let user = new users({ user_name, name, email, phone, password });
+        await user.save();
+        res.send("sucess");
     }
     catch(ex) {
         res.status(425).send({ message: ex.message });

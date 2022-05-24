@@ -9,4 +9,4 @@ const messageSchema = new mongoose.Schema({
     send_date: { type: Date, default: Date.now }
 });
 
-module.export = mongoose.model('messages', messageSchema);
+module.exports = mongoose.model('messages', messageSchema);
