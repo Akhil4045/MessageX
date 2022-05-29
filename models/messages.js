@@ -5,8 +5,11 @@ const messageSchema = new mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: Number, required: true },
+    subject: {type: String, default: 'Message' },
     message: { type: String, required: true },
-    send_date: { type: Date, default: Date.now }
+    send_date: { type: Date, default: Date.now },
+    read: { type: Boolean, default: false },
+    important: {type: Boolean, default: false}
 });
 
 module.exports = mongoose.model('messages', messageSchema);

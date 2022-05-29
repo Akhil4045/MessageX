@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <script type="text/javascript" src="/views/js/lib/jquery.js"></script>
+        <script type="text/javascript" src="/views/js/login.js"></script>
+        <link rel="stylesheet" href="/views/css/main.css">   
+   </head>
+   <body>
+        <main style="background-image: url(/views/images/wp4963518.jpg); width: 100%; height: 100%; background-repeat: no-repeat;">
+           <div class="login-div">
+                <div>MessageX</div>
+                <div class="login-box">
+                    <span style="font-size: 19px; font-weight: bold;">Sign in</span>
+                    <span style="color: #cbbfbf;">Login to manage your account</span>
+                    <span><input type='text' placeholder="User name" onkeydown="login.hideSpan();" class="log-in log-username"></span>
+                    <span><input type='password' placeholder="Password" onkeydown="login.hideSpan();" class="log-in log-password"></span> 
+                    <span><input type='checkbox' class="log-rem log-check">Remember me</span>
+                    <span class="login-failed" style="color: #e56161; text-align: center; display: none;">Invalid login!</span>
+                    <span class="log-btn" onclick="login.signin();" style="margin-left: 40px !important;">Sign in</span> 
+                </div>
+                <div class="login-redirect">
+                    <span style="color: #cbbfbf;">Don't have an account? <a onclick="login.showCreateAccount();" class="l-r">Sign up</a></span>
+                    <span class="l-r">Forgot password?</span>
+                </div>
+           </div> 
+           <div class="create-div" style="display: none; color: #fff;">
+                <div>MessageX</div>
+                <div class="create-box">
+                   <span style="font-size: 19px; font-weight: bold; margin-bottom: 20px;">Create your account</span>
+                   <span><input type='text' onkeydown="login.textBoxChange(this);" placeholder="Name" name="name" class="log-in cr-name"></span>
+                   <span><input type='text' onkeydown="login.textBoxChange(this);" placeholder="Email" name="email" class="log-in cr-email"></span>
+                   <span><input type='text' onkeydown="login.textBoxChange(this);" placeholder="Phone" name="phone" class="log-in cr-phone"></span>
+                   <span><input type='text' onkeydown="login.textBoxChange(this);" placeholder="User name" name="user_name" class="log-in cr-username"></span>
+                   <span><input type='password' onkeydown="login.textBoxChange(this);" placeholder="Password" name="password" class="log-in cr-password"></span> 
+                   <span><input type='checkbox' class="log-rem log-check">I agree the terms & conditions</span>  
+                   <span class="signup-failed" style="color: #e56161; text-align: center; display: none;">User name already exists!</span>  
+                   <span class="log-btn" onclick="login.signup();" style="margin: 7px;">Create my account</span> 
+                   <span style="color: #cbbfbf; font-size: 13px; text-align: center;">Already have an account? <a onclick="login.showLogin();" style="font-size: 15px;" class="l-r">Sign in</a></span>
+                </div>
+           </div> 
+           <div class="forget-div">
+
+           </div> 
+        </main>
+   </body>
+</html>

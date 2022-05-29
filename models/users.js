@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true },
     phone: { type: Number, required: true },
     password: { type: String, require: true, maxlength: 100 },
-    createdDate: { type: Date, default: Date.now }
+    createdDate: { type: Date, default: Date.now },
+    isAdmin: { type: Boolean, default: false }
 });
 
 module.exports = mongoose.model('users', userSchema);
