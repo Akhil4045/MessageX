@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const messages = require('./models/messages');
 const users = require('./models/users');
 const auth = require("./config/auth");
+const mailer = require("./config/mailer");
 const middleware = require("./middleware/auth");
 const { set } = require('express/lib/application');
 const { json } = require('express/lib/response');
@@ -73,6 +74,36 @@ app.post('/getMessages', middleware.authenticateToken, async(req, res) => {
         res.status(425).send({ message: ex.message });
     }  
 }); 
+
+app.post('/forgotPassword', async(req, res) => {
+    try {
+        const { to, subject, text, html } = req && req.body;
+        let user = await users.findOne({ email: to }), resp = {};
+        if (user) {
+            let mres = await mailer.generateMail(to, subject, text, html);
+            resp.status = true; resp.data = mres;
+        }
+        else {
+            resp.status = false;
+            resp.message = "User doesn't exist!";
+        }
+        return res.json({ resp: resp });
+    }
+    catch(ex) {
+        res.status(425).send({ message: ex.message });
+    }  
+});
+
+app.post('/sendMail', middleware.authenticateToken, async(req, res) => {
+    try {
+        const { to, subject, text, html } = req && req.body;
+        let mres = await mailer.generateMail(to, subject, text, html);
+        return res.json({ res: mres });
+    }
+    catch(ex) {
+        res.status(425).send({ message: ex.message });
+    }  
+});
 
 app.post("/signin", async(req, res) => {
     try {

@@ -61,7 +61,6 @@ const messages = {
   }
 }
 
-
 $(function() {
   $.ajax({
       type: "POST",

@@ -313,3 +313,35 @@ body {
 .empty {
     border: 1px solid #ff380d !important;
 }
+
+.forgot-div {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 10px;
+}
+
+.forgot-box {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
+    background-color: rgb(83 84 84 / 32%);
+    width: 350px;
+    min-height: 300px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.forgot-box span {
+    padding: 10px;
+    margin-left: 10%;
+}

@@ -20,7 +20,7 @@
                 </div>
                 <div class="login-redirect">
                     <span style="color: #cbbfbf;">Don't have an account? <a onclick="login.showCreateAccount();" class="l-r">Sign up</a></span>
-                    <span class="l-r">Forgot password?</span>
+                    <span onclick="login.showForgotPassword();" class="l-r">Forgot password?</span>
                 </div>
            </div> 
            <div class="create-div" style="display: none; color: #fff;">
@@ -38,8 +38,16 @@
                    <span style="color: #cbbfbf; font-size: 13px; text-align: center;">Already have an account? <a onclick="login.showLogin();" style="font-size: 15px;" class="l-r">Sign in</a></span>
                 </div>
            </div> 
-           <div class="forget-div">
-
+           <div class="forgot-div" style="display: none; color: #fff;">
+                <div>MessageX</div>
+                <div class="forgot-box">
+                    <span onclick="login.showLogin();" style="font-size: 18px; cursor: pointer;margin-left: 0px !important;">&larr; Back</span>
+                    <span style="font-size: 19px; font-weight: bold;">Forgot password?</span>
+                    <span style="color: #cbbfbf;">Pleas enter your registered email address, <br> We will send instructions to help reset you password.</span>
+                    <span><input type='text' placeholder="Email" style="margin-bottom: 7px;" onkeydown="login.textBoxChange(this);" class="log-in forgot-mail"></span> 
+                    <span class="log-btn" style="margin-left: 13%;" onclick="login.sendRecoveryMail();">Get recovery mail</span> 
+                    <span class="recovery-failed" style="color: #e56161; text-align: center; display: none; margin-left: 0px !important;">Recovery instructions mailed!</span>
+                </div>
            </div> 
         </main>
    </body>

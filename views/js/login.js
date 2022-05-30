@@ -1,4 +1,3 @@
-
 const login = {
    signin: function() {
         let user_name = $('.log-username').val(), password = $('.log-password').val();
@@ -28,13 +27,19 @@ const login = {
         $('.login-failed').hide();
    },
    showLogin: function() {
-       $('.create-div').hide(); $('.log-in').removeClass('empty');  $('.log-in').val(''); $('.log-check').attr('checked', false); $('.login-div').show(); 
+       $('.create-div').hide(); $('.forgot-div').hide(); $('.log-in').removeClass('empty');  $('.log-in').val(''); $('.log-check').attr('checked', false); $('.login-div').show(); 
    },
    showCreateAccount: function() {
         $('.login-div').hide(); $('.log-in').removeClass('empty'); $('.log-in').val(''); $('.log-check').attr('checked', false); $('.create-div').show();
    },
+   showForgotPassword: function() {
+        $('.login-div').hide(); $('.log-in').removeClass('empty'); $('.log-in').val(''); $('.forgot-div').show();
+   },
    textBoxChange: function(el) {
         $(el).removeClass('empty');
+   },
+   sendRecoveryMail: function() {
+
    },
    signup: function() {
         let data = {}, valid = true;
