@@ -9,6 +9,10 @@ body {
     height: 100%;
 }
 
+.p-msg {
+    margin: 0px 0px 10px 0px;
+}
+
 .message-tbl {
     box-shadow: 0 1px 5px 0 rgb(0 0 0 / 20%), 0 1px 5px 0 rgb(0 0 0 / 19%);
     border-collapse: collapse;

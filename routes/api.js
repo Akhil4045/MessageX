@@ -119,6 +119,7 @@ module.exports = function(app) {
                 if (user) {
                         token.status = true;
                         token.accessToken = auth.generateAccessToken({ user_name: user_name });
+                        token.user = { Name: user.name, UserName: user.user_name, IsAdmin: user.isAdmin, Email: user.email, Phone: user.phone };
                 }
                 else {
                         token.status = false;

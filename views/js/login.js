@@ -12,6 +12,7 @@ const login = {
                 let resData = res.data;
                 if (resData.status) {
                     document.cookie = `token=${ resData.accessToken }`;
+                    localStorage.user = JSON.stringify(resData.user);
                     window.location.href = "/message";
                 }
                 else {
